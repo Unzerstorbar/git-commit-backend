@@ -22,6 +22,7 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['prefix' => 'profile'], function () {
+    Route::get('registry', [ProfileController::class, 'registry']);
     Route::group(['prefix' => '{user}'], function() {
         Route::get('', [ProfileController::class, 'get']);
     });
