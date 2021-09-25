@@ -59,7 +59,7 @@ Route::group(['prefix' => 'profile'], function () {
         Route::put('', [ProfileController::class, 'update']);
         Route::delete('', [ProfileController::class, 'destroy']);
 
-        Route::delete('password/change', [ProfileController::class, 'destroy']);
+        Route::post('password/change', [ProfileController::class, 'changePassword']);
 
         Route::get('/events', [ProfileController::class, 'events']);
         Route::get('/documents', [ProfileController::class, 'documents']);
