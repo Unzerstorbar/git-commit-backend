@@ -2,6 +2,7 @@
 
 namespace Orphanage\Domain\Entity;
 
+use Address\Domain\Entity\City;
 use Illuminate\Database\Eloquent\Model;
 
 class Orphanage extends Model
