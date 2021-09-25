@@ -10,10 +10,14 @@ class Pupil extends Model
         'name',
         'birthday',
         'orphanage_id',
+        'created_at',
+        'updated_at',
     ];
 
     protected $hidden = [
         'orphanage_id',
+        'created_at',
+        'updated_at',
     ];
 
     protected $casts = [

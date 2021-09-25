@@ -7,6 +7,7 @@ use Event\Presentation\Controller\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Orphanage\Presentation\Controller\OrphanageController;
+use Orphanage\Presentation\Controller\PupilController;
 use Profile\Presentation\Controller\ProfileController;
 
 Route::get('/test', function (Request $request) {
@@ -38,6 +39,10 @@ Route::group(['prefix' => 'orphanage'], function () {
     Route::get('registry', [OrphanageController::class, 'registry']);
     Route::group(['prefix' => '{orphanage}'], function() {
         Route::get('', [OrphanageController::class, 'get']);
+
+        Route::group(['prefix' => 'pupil'], function() {
+            Route::post('', [PupilController::class, 'create']);
+        });
     });
 });
 

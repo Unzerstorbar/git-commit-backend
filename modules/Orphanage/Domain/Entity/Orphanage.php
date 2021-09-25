@@ -15,10 +15,14 @@ class Orphanage extends Model
         'description',
         'address',
         'city_id',
+        'created_at',
+        'updated_at',
     ];
 
     protected $hidden = [
         'city_id',
+        'created_at',
+        'updated_at',
     ];
 
     protected $appends = [
