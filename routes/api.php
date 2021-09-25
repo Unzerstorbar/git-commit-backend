@@ -67,6 +67,10 @@ Route::group(['prefix' => 'orphanage'], function () {
 Route::group(['prefix' => 'pupil'], function() {
     Route::group(['prefix' => '{pupil}'], function() {
         Route::delete('', [PupilController::class, 'destroy']);
+
+        Route::group(['prefix' => 'password'], function() {
+            Route::post('change', [PupilController::class, 'changePassword']);
+        });
     });
 });
 

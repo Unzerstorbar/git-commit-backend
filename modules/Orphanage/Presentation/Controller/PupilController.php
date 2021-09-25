@@ -71,4 +71,31 @@ class PupilController extends Controller
             ], 422);
         }
     }
+
+    public function changePassword(Request $request, Pupil $pupil)
+    {
+        $request->validate([
+            'password' => 'required|string|',
+            'c_password' => 'required|same:password',
+        ]);
+
+        if (!empty($pupil->user_id)) {
+            $user = User::all()->where('id', '=', $pupil->user_id)->first();
+            if (!empty($user)) {
+                $user->password = bcrypt($request->password);
+                if ($user->update()) {
+                    return response()->json([
+                        'message' => 'Пароль профиля воспитанника успешно изменён!',
+                    ]);
+                } else {
+                    return response()->json([
+                        'error' => 'Ошибка при смене пароля профиля воспитанника',
+                    ]);
+                }
+            }
+        }
+        return response()->json([
+            'error' => 'У данного воспитанника отсутствует учётная запись',
+        ]);
+    }
 }
