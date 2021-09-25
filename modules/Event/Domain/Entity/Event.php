@@ -19,7 +19,9 @@ class Event extends Model
         'venue_id',
         'description',
         'date',
-        'event_status_id'
+        'event_status_id',
+        'participants',
+        'organizers',
     ];
 
     protected $hidden = [
