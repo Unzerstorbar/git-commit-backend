@@ -44,6 +44,7 @@
             "Venue\\": "modules/Venue",
             "Address\\": "modules/Address",
             "Profile\\": "modules/Profile/",
+            "Image\\": "modules/Image",
             "Orphanage\\": "modules/Orphanage/"
         }
     },
