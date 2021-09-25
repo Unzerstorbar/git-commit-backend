@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-use Profile\Domain\Entity\Type;
+use Profile\Domain\Entity\Role;
 
 class User extends Authenticatable implements \JsonSerializable
 {
@@ -50,16 +50,16 @@ class User extends Authenticatable implements \JsonSerializable
     ];
 
     protected $appends = [
-        'type',
+        'role',
     ];
 
-    public function type()
+    public function role()
     {
-        return $this->belongsTo(Type::class);
+        return $this->belongsTo(Role::class);
     }
 
-    public function getTypeAttribute()
+    public function getRoleAttribute()
     {
-        return $this->type()->get()->first();
+        return $this->role()->get()->first();
     }
 }
