@@ -42,8 +42,9 @@
             "Events\\": "modules/Events",
             "Photo\\": "modules/Photo",
             "Venue\\": "modules/Venue",
-            "City\\": "modules/City"
-            "Database\\Seeders\\": "database/seeders/"
+            "City\\": "modules/City",
+            "Profile\\": "modules/Profile/",
+            "Orphanage\\": "modules/Orphanage/"
         }
     },
     "autoload-dev": {
