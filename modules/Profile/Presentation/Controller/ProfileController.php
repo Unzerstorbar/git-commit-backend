@@ -16,4 +16,14 @@ class ProfileController extends Controller
     {
         return response()->json($user);
     }
+
+    public function events(User $user)
+    {
+        return response()->json([]);
+    }
+
+    public function documents(User $user)
+    {
+        return response()->json([]);
+    }
 }

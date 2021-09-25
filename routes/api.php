@@ -55,6 +55,9 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('registry', [ProfileController::class, 'registry']);
     Route::group(['prefix' => '{user}'], function() {
         Route::get('', [ProfileController::class, 'get']);
+
+        Route::get('/events', [ProfileController::class, 'events']);
+        Route::get('/documents', [ProfileController::class, 'documents']);
     });
 });
 

@@ -22,7 +22,12 @@ class User extends Authenticatable implements \JsonSerializable
         'name',
         'email',
         'password',
-        'type_id',
+        'role_id',
+        'first_name',
+        'second_name',
+        'last_name',
+        'birthday',
+        'phone',
         'created_at',
         'updated_at',
     ];
@@ -35,8 +40,7 @@ class User extends Authenticatable implements \JsonSerializable
     protected $hidden = [
         'password',
         'remember_token',
-        'type_id',
-        'created_at',
+        'role_id',
         'updated_at',
     ];
 

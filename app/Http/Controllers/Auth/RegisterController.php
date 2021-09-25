@@ -20,13 +20,24 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $request->validate([
+            'first_name' => 'required|string',
+            'second_name' => 'required|string',
+            'last_name' => 'required|string',
+            'birthday' => 'required|date',
+            'phone' => 'string',
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|',
+            'password' => 'required|string',
             'c_password' => 'required|same:password',
         ]);
 
         $user = new User([
+            'first_name' => $request->first_name,
+            'second_name' => $request->second_name,
+            'last_name' => $request->last_name,
+            'birthday' => $request->birthday,
+            'phone' => $request->phone,
+            'role_id' => $request->role ? $request->role['id'] : null,
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password)
