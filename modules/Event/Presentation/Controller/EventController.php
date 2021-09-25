@@ -3,6 +3,7 @@
 namespace Event\Presentation\Controller;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Event\Domain\Entity\Event;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,8 @@ class EventController extends Controller
                 }
                 $event->tags()->sync($tagsId);
             }
+
+            $event->users()->sync($request->users[0]['id']);
 
             return response()->json([
                 'message' => 'Мероприятие успешно создано!',

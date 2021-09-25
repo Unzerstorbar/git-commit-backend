@@ -4,6 +4,7 @@ namespace Event\Domain\Entity;
 
 use Address\Domain\Entity\City;
 use Address\Domain\Entity\Venue;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Image\Domain\Entity\Image;
 use Tag\Domain\Entity\Tag;
@@ -35,7 +36,8 @@ class Event extends Model
         'city',
         'venue',
         'event_status',
-        'tags'
+        'tags',
+        'users',
     ];
 
     protected $casts = [
@@ -90,5 +92,15 @@ class Event extends Model
     public function getTagsAttribute()
     {
         return $this->tags()->get();
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function getUsersAttribute()
+    {
+        return $this->users()->get();
     }
 }

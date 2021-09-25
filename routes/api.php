@@ -33,6 +33,7 @@ Route::group(['prefix' => 'auth'], function () {
 Route::group(['prefix' => 'event'], function () {
     Route::get('list', [EventController::class, 'registry']);
     Route::get('status', [StatusController::class, 'registry']);
+    Route::post('', [EventController::class, 'create']);
     Route::group(['prefix' => '{event}'], function() {
         Route::get('', [EventController::class, 'get']);
         Route::put('', [EventController::class, 'update']);
