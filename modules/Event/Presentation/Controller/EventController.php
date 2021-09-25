@@ -25,6 +25,7 @@ class EventController extends Controller
             'description' => $request->description,
             'date' => $request->date,
             'city_id' => $request->city['id'],
+            'event_status_id' => $request->event_status['id'],
         ]);
 
         if ($event->save()) {
