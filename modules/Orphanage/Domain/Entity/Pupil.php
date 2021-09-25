@@ -12,7 +12,11 @@ class Pupil extends Model
         'orphanage_id',
     ];
 
+    protected $hidden = [
+        'orphanage_id',
+    ];
+
     protected $casts = [
-        'birthday' => 'datetime:d-m-Y',
+        'birthday' => 'datetime:d.m.Y',
     ];
 }
