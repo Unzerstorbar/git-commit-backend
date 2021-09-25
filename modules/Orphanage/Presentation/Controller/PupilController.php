@@ -55,7 +55,7 @@ class PupilController extends Controller
     public function destroy(Pupil $pupil)
     {
         if (!empty($pupil->user_id)) {
-            $user = User::all()->where('id', '=', $pupil->user_id)->get();
+            $user = User::all()->where('id', '=', $pupil->user_id)->first();
             if (!empty($user)) {
                 $user->delete();
             }
