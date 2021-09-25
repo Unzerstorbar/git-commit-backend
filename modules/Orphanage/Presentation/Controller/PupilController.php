@@ -43,12 +43,12 @@ class PupilController extends Controller
             } else {
                 return response()->json([
                     'error' => 'Предоставьте правильную информацию',
-                ]);
+                ], 422);
             }
         } else {
             return response()->json([
                 'error' => 'Предоставьте правильную информацию пользователя',
-            ]);
+            ], 422);
         }
     }
 }
