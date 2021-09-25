@@ -4,8 +4,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AuthController;
 use City\Presentation\Controller\CityController;
-use Events\Infrastructure\Repository\EventRegistrySqlRepository;
-use Events\Presentation\Controller\EventController;
+use Event\Infrastructure\Repository\EventRegistrySqlRepository;
+use Event\Presentation\Controller\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Photo\Presentation\Controller\PhotoController;
@@ -27,8 +27,8 @@ Route::group(['prefix' => 'auth'], function () {
     });
 });
 
-Route::group(['prefix' => 'events'], function () {
-    Route::get('registry', [EventController::class, 'getRegistry']);
+Route::group(['prefix' => 'event'], function () {
+    Route::get('registry', [EventController::class, 'registry']);
 });
 
 Route::group(['prefix' => 'profile'], function () {

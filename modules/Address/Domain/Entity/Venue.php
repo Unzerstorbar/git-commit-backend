@@ -1,6 +1,6 @@
 <?php
 
-namespace Venue\Domain\Entity;
+namespace Address\Domain\Entity;
 
 use Illuminate\Database\Eloquent\Model;
 

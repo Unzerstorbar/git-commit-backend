@@ -10,16 +10,16 @@ class Orphanage extends Model
         'name',
         'description',
         'address',
-//        'city_id',
+        'city_id',
     ];
 
-//    protected $hidden = [
-//        'city_id',
-//    ];
-//
+    protected $hidden = [
+        'city_id',
+    ];
+
     protected $appends = [
         'pupils',
-//        'city',
+        'city',
     ];
 
     public function pupils()
@@ -32,13 +32,13 @@ class Orphanage extends Model
         return $this->pupils()->get();
     }
 
-//    public function city()
-//    {
-//        return $this->belongsTo(City::class);
-//    }
-//
-//    public function getCityAttribute()
-//    {
-//        return $this->city()->get()->first();
-//    }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function getCityAttribute()
+    {
+        return $this->city()->get()->first();
+    }
 }

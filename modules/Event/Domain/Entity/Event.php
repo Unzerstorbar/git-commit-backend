@@ -1,10 +1,10 @@
 <?php
 
-namespace Events\Domain\Entity;
+namespace Event\Domain\Entity;
 
-use City\Domain\Entity\City;
+use Address\Domain\Entity\City;
+use Address\Domain\Entity\Venue;
 use Illuminate\Database\Eloquent\Model;
-use Venue\Domain\Entity\Venue;
 
 class Event extends Model
 {

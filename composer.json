@@ -39,10 +39,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Events\\": "modules/Events",
+            "Event\\": "modules/Event",
             "Photo\\": "modules/Photo",
             "Venue\\": "modules/Venue",
-            "City\\": "modules/City",
+            "Address\\": "modules/Address",
             "Profile\\": "modules/Profile/",
             "Orphanage\\": "modules/Orphanage/"
         }
