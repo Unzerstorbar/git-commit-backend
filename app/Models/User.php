@@ -23,6 +23,8 @@ class User extends Authenticatable implements \JsonSerializable
         'email',
         'password',
         'type_id',
+        'created_at',
+        'updated_at',
     ];
 
     /**
@@ -34,6 +36,8 @@ class User extends Authenticatable implements \JsonSerializable
         'password',
         'remember_token',
         'type_id',
+        'created_at',
+        'updated_at',
     ];
 
     /**
