@@ -10,7 +10,11 @@ class City extends Model
 
     protected $fillable = [
         'id',
-        'id_region',
+        'region_id',
         'name',
+    ];
+
+    protected $hidden = [
+        'region_id',
     ];
 }

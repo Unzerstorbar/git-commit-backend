@@ -16,4 +16,8 @@ class Venue extends Model
         'index',
         'name',
     ];
+
+    protected $hidden = [
+        'city_id',
+    ];
 }
