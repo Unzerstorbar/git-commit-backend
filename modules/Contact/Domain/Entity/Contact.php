@@ -11,5 +11,10 @@ class Contact extends Model
         'role',
         'type',
         'contact',
+        'orphanage_id',
+    ];
+
+    protected $hidden = [
+        'orphanage_id',
     ];
 }
