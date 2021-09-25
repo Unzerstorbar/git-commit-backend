@@ -82,7 +82,10 @@ class ProfileController extends Controller
 
     public function events(User $user)
     {
-        return response()->json([]);
+        return response()->json([
+            'forthcoming' => [],
+            'completed' => [],
+        ]);
     }
 
     public function documents(User $user)
