@@ -3,7 +3,10 @@
 namespace Orphanage\Domain\Entity;
 
 use Address\Domain\Entity\City;
+use Contact\Domain\Entity\Contact;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Orphanage extends Model
 {
@@ -20,6 +23,7 @@ class Orphanage extends Model
 
     protected $appends = [
         'pupils',
+        'contacts',
         'city',
     ];
 
@@ -31,6 +35,16 @@ class Orphanage extends Model
     public function getPupilsAttribute()
     {
         return $this->pupils()->get();
+    }
+
+    public function contacts(): HasMany
+    {
+        return $this->hasMany(Contact::class);
+    }
+
+    public function getContactsAttribute(): Collection
+    {
+        return $this->contacts()->get();
     }
 
     public function city()
