@@ -15,6 +15,7 @@ class Orphanage extends Model
         'description',
         'address',
         'city_id',
+        'index',
         'created_at',
         'updated_at',
     ];
