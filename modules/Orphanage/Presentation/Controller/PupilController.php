@@ -51,4 +51,24 @@ class PupilController extends Controller
             ], 422);
         }
     }
+
+    public function destroy(Pupil $pupil)
+    {
+        if (!empty($pupil->user_id)) {
+            $user = User::all()->where('id', '=', $pupil->user_id)->get();
+            if (!empty($user)) {
+                $user->delete();
+            }
+        }
+
+        if ($pupil->delete()) {
+            return response()->json([
+                'message' => 'Воспитанник успешно удалён!',
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'Ошибка при удалении воспитанника',
+            ], 422);
+        }
+    }
 }

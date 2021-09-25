@@ -64,6 +64,12 @@ Route::group(['prefix' => 'orphanage'], function () {
     });
 });
 
+Route::group(['prefix' => 'pupil'], function() {
+    Route::group(['prefix' => '{pupil}'], function() {
+        Route::delete('', [PupilController::class, 'destroy']);
+    });
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
