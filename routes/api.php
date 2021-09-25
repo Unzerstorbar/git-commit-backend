@@ -31,12 +31,13 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['prefix' => 'event'], function () {
-    Route::get('registry', [EventController::class, 'registry']);
+    Route::get('list', [EventController::class, 'registry']);
     Route::get('status', [StatusController::class, 'registry']);
     Route::group(['prefix' => '{event}'], function() {
         Route::get('', [EventController::class, 'get']);
+        Route::put('', [EventController::class, 'update']);
+        Route::get('statusChange', [EventController::class, 'statusChange']);
     });
-    Route::post('', [EventController::class, 'create']);
 });
 
 Route::group(['prefix' => 'address'], function () {
@@ -46,8 +47,8 @@ Route::group(['prefix' => 'address'], function () {
     Route::get('venue', [VenueController::class, 'registry']);
 });
 
-Route::group(['prefix' => 'topic'], function () {
-    Route::get('registry', [TagController::class, 'registry']);
+Route::group(['prefix' => 'tag'], function () {
+    Route::get('list', [TagController::class, 'registry']);
 });
 
 Route::group(['prefix' => 'profile'], function () {
