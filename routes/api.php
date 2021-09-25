@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 use Orphanage\Presentation\Controller\OrphanageController;
 use Orphanage\Presentation\Controller\PupilController;
 use Profile\Presentation\Controller\ProfileController;
-use Topic\Presentation\Controller\TagController;
+use Tag\Presentation\Controller\TagController;
 
 Route::get('/test', function (Request $request) {
     return "Hello, world!";
