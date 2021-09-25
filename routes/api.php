@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use Orphanage\Presentation\Controller\OrphanageController;
 use Orphanage\Presentation\Controller\PupilController;
 use Profile\Presentation\Controller\ProfileController;
+use Topic\Presentation\Controller\TopicController;
 
 Route::get('/test', function (Request $request) {
     return "Hello, world!";
@@ -33,6 +34,7 @@ Route::group(['prefix' => 'event'], function () {
     Route::group(['prefix' => '{event}'], function() {
         Route::get('', [EventController::class, 'get']);
     });
+    Route::post('', [EventController::class, 'create']);
 });
 
 Route::group(['prefix' => 'address'], function () {
@@ -40,6 +42,10 @@ Route::group(['prefix' => 'address'], function () {
     Route::get('district', [DistrictController::class, 'registry']);
     Route::get('region', [RegionController::class, 'registry']);
     Route::get('venue', [VenueController::class, 'registry']);
+});
+
+Route::group(['prefix' => 'topic'], function () {
+    Route::get('registry', [TopicController::class, 'registry']);
 });
 
 Route::group(['prefix' => 'profile'], function () {
