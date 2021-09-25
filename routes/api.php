@@ -3,8 +3,13 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AuthController;
+use City\Presentation\Controller\CityController;
+use Events\Infrastructure\Repository\EventRegistrySqlRepository;
+use Events\Presentation\Controller\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Photo\Presentation\Controller\PhotoController;
+use Venue\Presentation\Controller\VenueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +34,10 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('logout', [AuthController::class, 'logout']);
         Route::get('user', [AuthController::class, 'user']);
     });
+});
+
+Route::group(['prefix' => 'events'], function () {
+    Route::get('registry', [EventController::class, 'getRegistry']);
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
