@@ -4,7 +4,7 @@ namespace Profile\Presentation\Controller;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -18,7 +18,7 @@ class ProfileController extends Controller
         return response()->json($user);
     }
 
-    public function update(Response $request, User $user)
+    public function update(Request $request, User $user)
     {
         $fields = [
             'first_name',
@@ -59,7 +59,7 @@ class ProfileController extends Controller
         }
     }
 
-    public function changePassword(Response $request, User $user)
+    public function changePassword(Request $request, User $user)
     {
         $request->validate([
             'old_password' => 'required|string',
