@@ -3,13 +3,9 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AuthController;
-use City\Presentation\Controller\CityController;
-use Event\Infrastructure\Repository\EventRegistrySqlRepository;
 use Event\Presentation\Controller\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Photo\Presentation\Controller\PhotoController;
-use Venue\Presentation\Controller\VenueController;
 use Orphanage\Presentation\Controller\OrphanageController;
 use Profile\Presentation\Controller\ProfileController;
 
