@@ -1,22 +1,20 @@
 <?php
 
-namespace Orphanage\Domain\Entity;
+namespace Contact\Domain\Entity;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pupil extends Model
+class Contact extends Model
 {
     protected $fillable = [
         'name',
-        'birthday',
+        'role',
+        'type',
+        'contact',
         'orphanage_id',
     ];
 
     protected $hidden = [
         'orphanage_id',
-    ];
-
-    protected $casts = [
-        'birthday' => 'datetime:d.m.Y',
     ];
 }
