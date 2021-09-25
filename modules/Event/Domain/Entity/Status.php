@@ -4,7 +4,7 @@ namespace Event\Domain\Entity;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EventStatus extends Model
+class Status extends Model
 {
     protected $table = 'event_status';
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AuthController;
 use Event\Presentation\Controller\EventController;
+use Event\Presentation\Controller\StatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Orphanage\Presentation\Controller\OrphanageController;
@@ -31,6 +32,7 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::group(['prefix' => 'event'], function () {
     Route::get('registry', [EventController::class, 'registry']);
+    Route::get('status', [StatusController::class, 'registry']);
     Route::group(['prefix' => '{event}'], function() {
         Route::get('', [EventController::class, 'get']);
     });

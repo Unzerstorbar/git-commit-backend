@@ -58,7 +58,7 @@ class Event extends Model
 
     public function eventStatus()
     {
-        return $this->belongsTo(EventStatus::class);
+        return $this->belongsTo(Status::class);
     }
 
     public function topic()
