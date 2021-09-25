@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 use Orphanage\Presentation\Controller\OrphanageController;
 use Orphanage\Presentation\Controller\PupilController;
 use Profile\Presentation\Controller\ProfileController;
-use Topic\Presentation\Controller\TopicController;
+use Topic\Presentation\Controller\TagController;
 
 Route::get('/test', function (Request $request) {
     return "Hello, world!";
@@ -47,7 +47,7 @@ Route::group(['prefix' => 'address'], function () {
 });
 
 Route::group(['prefix' => 'topic'], function () {
-    Route::get('registry', [TopicController::class, 'registry']);
+    Route::get('registry', [TagController::class, 'registry']);
 });
 
 Route::group(['prefix' => 'profile'], function () {

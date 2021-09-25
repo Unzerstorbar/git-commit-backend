@@ -1,10 +1,10 @@
 <?php
 
-namespace Topic\Domain\Entity;
+namespace Tag\Domain\Entity;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Topic extends Model
+class Tag extends Model
 {
     protected $fillable = [
         'id',

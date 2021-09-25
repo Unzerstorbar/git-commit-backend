@@ -6,8 +6,7 @@ use Address\Domain\Entity\City;
 use Address\Domain\Entity\Venue;
 use Illuminate\Database\Eloquent\Model;
 use Image\Domain\Entity\Image;
-use Topic\Domain\Entity\EventTopic;
-use Topic\Domain\Entity\Topic;
+use Tag\Domain\Entity\Tag;
 
 class Event extends Model
 {
@@ -36,7 +35,7 @@ class Event extends Model
         'city',
         'venue',
         'event_status',
-        'topic'
+        'tags'
     ];
 
     protected $casts = [
@@ -63,9 +62,9 @@ class Event extends Model
         return $this->belongsTo(Status::class);
     }
 
-    public function topic()
+    public function tags()
     {
-        return $this->belongsToMany(Topic::class, 'event_topic');
+        return $this->belongsToMany(Tag::class);
     }
 
     public function getCityAttribute()
@@ -88,8 +87,8 @@ class Event extends Model
         return $this->eventStatus()->get()->first();
     }
 
-    public function getTopicAttribute()
+    public function getTagsAttribute()
     {
-        return $this->topic()->get();
+        return $this->tags()->get();
     }
 }

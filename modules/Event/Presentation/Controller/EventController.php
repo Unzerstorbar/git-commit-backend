@@ -29,6 +29,14 @@ class EventController extends Controller
         ]);
 
         if ($event->save()) {
+
+            if (count($request->tags) > 0) {
+                foreach ($request->tags as $tag) {
+                    $tagsId [] = $tag['id'];
+                }
+                $event->tags()->sync($tagsId);
+            }
+
             return response()->json([
                 'message' => 'Мероприятие успешно создано!',
             ], 201);

@@ -46,7 +46,7 @@
             "Profile\\": "modules/Profile/",
             "Image\\": "modules/Image",
             "Contact\\": "modules/Contact/",
-            "Topic\\": "modules/Topic/",
+            "Tag\\": "modules/Tag/",
             "Orphanage\\": "modules/Orphanage/"
         }
     },
