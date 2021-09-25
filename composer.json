@@ -39,7 +39,8 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Profile\\": "modules/Profile/"
+            "Profile\\": "modules/Profile/",
+            "Orphanage\\": "modules/Orphanage/"
         }
     },
     "autoload-dev": {

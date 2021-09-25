@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Orphanage\Presentation\Controller\OrphanageController;
 use Profile\Presentation\Controller\ProfileController;
 
 Route::get('/test', function (Request $request) {
@@ -25,6 +26,13 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('registry', [ProfileController::class, 'registry']);
     Route::group(['prefix' => '{user}'], function() {
         Route::get('', [ProfileController::class, 'get']);
+    });
+});
+
+Route::group(['prefix' => 'orphanage'], function () {
+    Route::get('registry', [OrphanageController::class, 'registry']);
+    Route::group(['prefix' => '{orphanage}'], function() {
+        Route::get('', [OrphanageController::class, 'get']);
     });
 });
 
