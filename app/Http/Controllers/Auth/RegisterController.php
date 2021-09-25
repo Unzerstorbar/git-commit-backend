@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use User\Presentation\Controller\UserDocumentController;
 
 class RegisterController extends Controller
 {
@@ -43,6 +44,10 @@ class RegisterController extends Controller
             'password' => bcrypt($request->password)
         ]);
         if ($user->save()) {
+            if (!empty($request->document_series) && !empty($user->id)) {
+                (new UserDocumentController())->create($request, $user);
+            }
+
             return response()->json([
                 'message' => 'Пользователь успешно создан!',
             ], 201);

@@ -47,7 +47,8 @@
             "Image\\": "modules/Image",
             "Contact\\": "modules/Contact/",
             "Tag\\": "modules/Tag/",
-            "Orphanage\\": "modules/Orphanage/"
+            "Orphanage\\": "modules/Orphanage/",
+            "User\\": "modules/User/"
         }
     },
     "autoload-dev": {
