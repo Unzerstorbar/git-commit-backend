@@ -11,4 +11,9 @@ class EventController extends Controller
     {
         return response()->json(Event::all());
     }
+
+    public function get(Event $event)
+    {
+        return response()->json($event);
+    }
 }

@@ -1,5 +1,9 @@
 <?php
 
+use Address\Presentation\Controller\CityController;
+use Address\Presentation\Controller\DistrictController;
+use Address\Presentation\Controller\RegionController;
+use Address\Presentation\Controller\VenueController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AuthController;
@@ -26,6 +30,16 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::group(['prefix' => 'event'], function () {
     Route::get('registry', [EventController::class, 'registry']);
+    Route::group(['prefix' => '{event}'], function() {
+        Route::get('', [EventController::class, 'get']);
+    });
+});
+
+Route::group(['prefix' => 'address'], function () {
+    Route::get('city', [CityController::class, 'registry']);
+    Route::get('district', [DistrictController::class, 'registry']);
+    Route::get('region', [RegionController::class, 'registry']);
+    Route::get('venue', [VenueController::class, 'registry']);
 });
 
 Route::group(['prefix' => 'profile'], function () {
