@@ -67,17 +67,19 @@ class ProfileController extends Controller
             'c_password' => 'required|same:password',
         ]);
 
-        $user->password = bcrypt($request->password);
+        if (bcrypt($request->old_password) === $user->password) {
+            $user->password = bcrypt($request->password);
 
-        if ($user->update()) {
-            return response()->json([
-                'message' => 'Пароль пользователя успешно изменён!',
-            ]);
-        } else {
-            return response()->json([
-                'error' => 'Проверьте правильность заполненных данных',
-            ], 422);
+            if ($user->update()) {
+                return response()->json([
+                    'message' => 'Пароль пользователя успешно изменён!',
+                ]);
+            }
         }
+
+        return response()->json([
+            'error' => 'Проверьте правильность заполненных данных',
+        ], 422);
     }
 
     public function events(User $user)
