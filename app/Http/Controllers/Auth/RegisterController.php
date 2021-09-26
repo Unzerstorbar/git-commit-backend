@@ -26,7 +26,7 @@ class RegisterController extends Controller
             'last_name' => 'required|string',
             'birthday' => 'required|date',
             'phone' => 'string',
-            'name' => 'required|string',
+            'name' => 'string',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string',
             'c_password' => 'required|same:password',
@@ -39,7 +39,7 @@ class RegisterController extends Controller
             'birthday' => $request->birthday,
             'phone' => $request->phone,
             'role_id' => $request->role ? $request->role['id'] : null,
-            'name' => $request->name,
+            'name' => "{$request->first_name} {$request->second_name} {$request->last_name}",
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
