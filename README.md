@@ -68,5 +68,6 @@ composer install
 <h4>Куплинов Александр Backend https://vk.com/anydream_music </h4>
 <h4>Бойцов Андрей Frontend https://t.me/SamLeto </h4>
 <h4>Белов Евгений Frontend https://vk.com/id58014386 </h4>
+<h4>Любшин Алексей https://t.me/Rnd000 </h4>
 
 
