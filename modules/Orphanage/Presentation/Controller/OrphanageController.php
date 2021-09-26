@@ -4,6 +4,7 @@ namespace Orphanage\Presentation\Controller;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Orphanage\Domain\Entity\Orphanage;
 
 class OrphanageController extends Controller
@@ -69,5 +70,29 @@ class OrphanageController extends Controller
                 'error' => 'Ошибка при удалении детского дома',
             ], 422);
         }
+    }
+
+    public function pupilOrphanageEvent(Orphanage $orphanage)
+    {
+        return DB::table('pupils')
+            ->select(
+                'pupils.name',
+                'events.name as eventName',
+                'events.date',
+                'cities.name as city',
+                'event_venues.address',
+                'event_venues.name as venue',
+                'events.id as eventId',
+                'users.id as usersId',
+            )
+            ->join('orphanages', 'orphanages.id', '=', 'pupils.orphanage_id')
+            ->join('users', 'users.id', '=', 'pupils.user_id')
+            ->join('event_user', 'event_user.user_id', '=', 'users.id')
+            ->join('events', 'events.id', '=', 'event_user.event_id')
+            ->join('event_venues', 'events.venue_id', '=', 'event_venues.id')
+            ->join('cities', 'events.city_id', '=', 'cities.id')
+            ->where('orphanages.id','=',$orphanage->id)
+            ->where('event_user.confirmed','=',0)
+            ->get();
     }
 }

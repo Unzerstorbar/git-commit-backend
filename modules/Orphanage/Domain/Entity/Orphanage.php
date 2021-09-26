@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Orphanage extends Model
 {
     protected $fillable = [
+        'id',
         'name',
         'description',
         'address',

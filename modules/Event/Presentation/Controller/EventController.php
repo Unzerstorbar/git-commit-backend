@@ -118,4 +118,22 @@ class EventController extends Controller
         }
     }
 
+    public function confirmedChange(Event $event, User $user)
+    {
+        $userEvent = EventUser::all()
+            ->where('event_id', '=', $event->id)
+            ->where('user_id','=', $user->id)
+            ->first();
+        $userEvent->confirmed = 1;
+
+        if ($userEvent->update()) {
+            return response()->json([
+                'message' => 'участие на мероприяте одобрено',
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'никогда такого не было и вот опять',
+            ], 422);
+        }
+    }
 }

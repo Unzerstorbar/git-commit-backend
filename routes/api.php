@@ -39,6 +39,7 @@ Route::group(['prefix' => 'event'], function () {
         Route::put('', [EventController::class, 'update']);
         Route::get('statusChange', [EventController::class, 'statusChange']);
         Route::get('{user}', [EventController::class, 'addUser']);
+        Route::get('{user}', [EventController::class, 'confirmedChange']);
     });
 });
 
@@ -69,13 +70,12 @@ Route::group(['prefix' => 'profile'], function () {
 
 Route::group(['prefix' => 'orphanage'], function () {
     Route::get('registry', [OrphanageController::class, 'registry']);
-
     Route::post('', [OrphanageController::class, 'create']);
     Route::group(['prefix' => '{orphanage}'], function() {
         Route::get('', [OrphanageController::class, 'get']);
         Route::put('', [OrphanageController::class, 'update']);
         Route::delete('', [OrphanageController::class, 'destroy']);
-
+        Route::get('pupilOrphanageEvent', [OrphanageController::class, 'pupilOrphanageEvent']);
         Route::group(['prefix' => 'pupil'], function() {
             Route::post('', [PupilController::class, 'create']);
         });
