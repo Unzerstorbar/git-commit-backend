@@ -1,62 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h4>Реализованная функциональность:</h4>
+<ul>
+    <li>Авторизация, регистрация;</li>
+    <li>Формирование реестра воспитанников;</li>
+    <li>Создание мероприятий для воспитанников детских домов;</li>
+    <li>Ведение профиля, учёт активности пользователя (принятие участия в различных мероприятиях в роли волонтёра);</li>
+</ul> 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h4>Основной стек технологий:</h4>
+<ul>
+	<li>PHP 8, MySQL.</li>
+	<li>Laravel.</li>
+	<li>Babel.</li>
+	<li>Angular.</li>
+	<li>Git.</li>
+	<li>Gitlab.</li>
 
-## About Laravel
+ </ul>
+<h4>Демо</h4>
+<p>Демо сервиса доступно по адресу: <b>http://lupsor.ru/</b></p>
+<p>Реквизиты тестового пользователя: E-mail: <b>test@lupsor.ru</b>, пароль: <b>admin</b></p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+СРЕДА ЗАПУСКА
+------------
+1) Развертывание сервиса производится на Ubuntu (Ubuntu 18.02);
+2) Требуется установленный Docker
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+УСТАНОВКА
+------------
+### Установка пакета "git-commit-backend"
 
-## Learning Laravel
+Выполните
+~~~
+git clone https://github.com/Unzerstorbar/git-commit-backend.git
+cd git-commit-backend
+docker-compose up -d
+...
+~~~
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+После перейдите по ссылке http: http://localhost/
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### База данных
 
-## Laravel Sponsors
+Необходимо создать пустую базу данных, а подключение к базе прописать в конфигурационный файл **.env** в корневом каталоге проекта
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Выполнение миграций
 
-### Premium Partners
+Для заполнения базы данных системной информацией выполните в корневой папке сервиса:
+~~~
+php artisan migrate 
+~~~
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+### Установка зависимостей проекта
 
-## Contributing
+Установка зависимостей осуществляется с помощью [Composer](http://getcomposer.org/). Если у вас его нет вы можете установить его по инструкции
+на [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+После этого выполнить команду в директории проекта:
 
-## Code of Conduct
+~~~
+composer install
+~~~
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+РАЗРАБОТЧИКИ
 
-## Security Vulnerabilities
+<h4>Шаманин Алексей Backend https://t.me/alexowen </h4>
+<h4>Куплинов Александр Backend https://vk.com/anydream_music </h4>
+<h4>Бойцов Андрей Frontend https://t.me/SamLeto </h4>
+<h4>Белов Евгений Frontend https://vk.com/id58014386 </h4>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
