@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Profile\Domain\Entity\Role;
+use Tag\Domain\Entity\Tag;
 
 class User extends Authenticatable implements \JsonSerializable
 {
@@ -30,6 +30,7 @@ class User extends Authenticatable implements \JsonSerializable
         'phone',
         'created_at',
         'updated_at',
+        'pivot',
     ];
 
     /**
@@ -55,6 +56,7 @@ class User extends Authenticatable implements \JsonSerializable
 
     protected $appends = [
         'role',
+        'tags',
     ];
 
     public function role()
@@ -65,5 +67,15 @@ class User extends Authenticatable implements \JsonSerializable
     public function getRoleAttribute()
     {
         return $this->role()->get()->first();
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function getTagsAttribute()
+    {
+        return $this->tags()->get();
     }
 }

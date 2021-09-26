@@ -5,6 +5,7 @@ namespace Event\Presentation\Controller;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Event\Domain\Entity\Event;
+use Event\Domain\Entity\EventUser;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -89,8 +90,32 @@ class EventController extends Controller
             ]);
         } else {
             return response()->json([
-                'error' => 'Ошибка при удалении детского дома',
+                'error' => 'Статус не изменен',
             ], 422);
         }
     }
+
+    public function addUser(Event $event, User $user)
+    {
+        $eventUserDataSave = [
+            'event_id' => $event->id,
+            'user_id' => $user->id,
+            ];
+        if ($user->getRoleAttribute()->code === 'pupil') {
+            $eventUserDataSave += ['confirmed' => 0];
+        }
+
+        $eventUser = new EventUser($eventUserDataSave);
+
+        if ($eventUser->save()) {
+            return response()->json([
+                'message' => 'Вы добавлены на мероприяте',
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'никогда такого не было и вот опять',
+            ], 422);
+        }
+    }
+
 }

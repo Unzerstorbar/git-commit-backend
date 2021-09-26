@@ -103,4 +103,14 @@ class Event extends Model
     {
         return $this->users()->get();
     }
+
+    public function eventUsers()
+    {
+        return $this->hasMany(EventUser::class);
+    }
+
+    public function getEventUsersAttribute()
+    {
+        return $this->eventUsers()->get();
+    }
 }

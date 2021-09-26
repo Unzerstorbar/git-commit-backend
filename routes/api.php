@@ -38,6 +38,7 @@ Route::group(['prefix' => 'event'], function () {
         Route::get('', [EventController::class, 'get']);
         Route::put('', [EventController::class, 'update']);
         Route::get('statusChange', [EventController::class, 'statusChange']);
+        Route::get('{user}', [EventController::class, 'addUser']);
     });
 });
 
